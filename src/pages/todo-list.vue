@@ -20,7 +20,7 @@
     <list :listData="todoData"></list>
     <c-dialog
       ref="createGroupDialog"
-      title="新建任务"
+      title="新建任务组"
       cancelBtn="取消"
       confirmBtn="确认"
       @confirm="confirmCreateGroup"

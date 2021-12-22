@@ -29,7 +29,9 @@
       :title="listItem.id ? '编辑': '新增'"
       cancelBtn="取消"
       confirmBtn="确认"
+      deleteBtn="删除"
       @confirm="itemDetailConfirm"
+      @Delete="itemDelete"
     >
       <div class="item-detail">
         <ul>
@@ -62,6 +64,16 @@
                 <option value="0">普通</option>
                 <option value="1">紧急</option>
                 <option value="2">非常紧急</option>
+              </select>
+            </div>
+          </li>
+          <li class="dis-flex">
+            <div class="w-80">执行人</div> <!-- 从user表中获取用户信息-->
+            <div class="flex1">
+              <select  v-model="listItem.user" id="">
+                <option value="0">用户1</option>
+                <option value="1">用户2</option>
+                <option value="2">用户3</option>
               </select>
             </div>
           </li>
@@ -109,7 +121,8 @@ export default {
         name: '',
         description: '',
         level: 0,
-        imgs: []
+        imgs: [],
+        user: 0 // 执行人,默认自己
       }
     }
   },
@@ -154,6 +167,10 @@ export default {
         index: this.groupIndex,
         item: this.listItem
       })
+    }, // 删除任务
+    itemDelete () {
+      this.$current = ''
+      this.drag = false
     },
     editListItem (item) {
       this.listItem = Object.assign({

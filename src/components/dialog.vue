@@ -8,6 +8,7 @@
       <div class="btn">
         <button v-if="cancelBtn" @click="cancel">{{cancelBtn?cancelBtn:'取消'}}</button>
         <button v-if="confirmBtn" @click="confirm">{{confirmBtn?confirmBtn:'确认'}}</button>
+        <button v-if="deleteBtn" @click="Delete">{{deleteBtn?deleteBtn:'删除'}}</button>
       </div>
     </div>
   </div>
@@ -25,6 +26,10 @@ export default {
       default: ''
     },
     confirmBtn: {
+      type: [String],
+      default: ''
+    },
+    deleteBtn: {
       type: [String],
       default: ''
     },
@@ -50,6 +55,10 @@ export default {
     },
     confirm () {
       this.$emit('confirm')
+      this.hide()
+    },
+    Delete () {
+      this.$emit('Delete')
       this.hide()
     }
   }

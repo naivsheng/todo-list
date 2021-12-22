@@ -4,5 +4,8 @@ module.exports = {
   CREATED_TASK_LIST: "INSERT INTO TASK_LIST (title, description, enclosure, level, group_id, date) VALUES('${title}', '${description}', '${enclosure}', '${level}', '${group_id}', '${date}')",
   UPDATE_TASK_LIST: "UPDATE TASK_LIST  SET title = '${title}', description = '${description}', enclosure = '${enclosure}', level = ${level}, group_id = ${group_id}, date = '${date}' WHERE ID = ${id}",
   USER_LOGIN: "SELECT * FROM user where username = '${username}' and password = '${password}'",
-  USER_REGISTER: "INSERT INTO user (username, password, ip, date) VALUES('${username}', '${password}', '${ip}', '${date}')"
+  USER_REGISTER: "INSERT INTO user (username, password, ip, date) VALUES('${username}', '${password}', '${ip}', '${date}')",
+  RENAME_TASK_GROUP: "UPDATE TASK_GROUP SET TITLE = '${title}' WHERE ID = ${group_id}",
+  DELETE_TASK_LIST: "DELETE FROM TASK_LIST WHERE ID = ${id}",
+  DELETE_TASK_GROUP: "DELETE FROM TASK_GROUP WHERE ID = ${group_id}"
 }
